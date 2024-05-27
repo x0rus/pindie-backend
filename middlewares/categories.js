@@ -41,3 +41,10 @@ const updateCategory = async (req, res, next) => {
           res.status(400).send(JSON.stringify({ message: "Ошибка удаления категории" }));
     }
   };
+
+  module.exports = {
+  createCategory,
+  findCategoryById,
+  updateCategory,
+  deleteCategory
+  };

@@ -40,3 +40,10 @@ const findUserById = async (req, res, next) => {
           res.status(400).send(JSON.stringify({ message: "Ошибка удаления пользователя" }));
     }
   };
+
+  module.exports = {
+    createUser,
+    findUserById,
+    updateUser,
+    deleteUser
+  };

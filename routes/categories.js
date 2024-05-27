@@ -1,3 +1,14 @@
+const { sendCategoryCreated,
+        sendCategoryById,
+        sendCategoryUpdated,
+        sendCategoryDeleted } = require("../controllers/categories");
+
+const { createCategory,
+  findCategoryById,
+  updateCategory,
+  deleteCategory } = require("../middlewares/categories");
+
+
 const categoriesRouter = require("express").Router();
 
 const {} = require("");

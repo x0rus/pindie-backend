@@ -1,3 +1,13 @@
+const { sendGameCreated,
+  sendGameById,
+  sendGameUpdated,
+  sendGameDeleted } = require("../controllers/games");
+const { createGame,
+  findGameById,
+  findAllGames,
+  updateGame,
+  deleteGame } = require("../middlewares/games");
+
 const gamesRouter = require("express").Router();
 
 const {} = require("");

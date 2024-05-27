@@ -52,3 +52,11 @@ const deleteGame = async (req, res, next) => {
     res.status(400).send({ message: "Error deleting game" });
   }
 };
+
+module.exports = {
+  createGame,
+  findGameById,
+  findAllGames,
+  updateGame,
+  deleteGame
+};

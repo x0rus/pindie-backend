@@ -1,3 +1,12 @@
+const { sendUserCreated,
+  sendUserById,
+  sendUserUpdated,
+  sendUserDeleted } = require("../controllers/users");
+const { createUser,
+  findUserById,
+  updateUser,
+  deleteUse } = require("../middlewares/users");
+
 const usersRouter = require("express").Router();
 
 const {} = require("");
