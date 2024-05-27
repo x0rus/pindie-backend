@@ -29,3 +29,14 @@ const findUserById = async (req, res, next) => {
       res.status(400).send({ message: "Ошибка обновления игры" });
     }
   };
+
+  const deleteUser = async (req, res, next) => {
+    console.log("DELETE /users/:id");
+    try {
+      req.user = await users.findByIdAndDelete(req.params.id);
+      next();
+    } catch (error) {
+      res.setHeader("Content-Type", "application/json");
+          res.status(400).send(JSON.stringify({ message: "Ошибка удаления пользователя" }));
+    }
+  };

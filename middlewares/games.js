@@ -41,3 +41,14 @@ const updateGame = async (req, res, next) => {
       res.status(400).send({ message: "Ошибка обновления игры" });
     }
   };
+
+
+const deleteGame = async (req, res, next) => {
+  try {
+    // Методом findByIdAndDelete по id находим и удаляем документ из базы данных
+    req.game = await games.findByIdAndDelete(req.params.id);
+    next();
+  } catch (error) {
+    res.status(400).send({ message: "Error deleting game" });
+  }
+};
