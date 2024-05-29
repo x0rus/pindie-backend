@@ -1,3 +1,5 @@
+const games = require("../models/games");
+
 const createGame = async (req, res, next) => {
     console.log("POST /games");
     try {
@@ -22,7 +24,10 @@ const findGameById = async (req, res, next) => {
   };
 
 const findAllGames = async (req, res, next) => {
-    console.log("GET /games");
+  req.gamesArray = await games.find({});
+  console.log(req.gamesArray);
+  next();
+  /*console.log("GET /games");
     req.gamesArray = await games
       .find({})
       .populate("categories")
@@ -30,7 +35,7 @@ const findAllGames = async (req, res, next) => {
             path: "users",
             select: "-password"
           });
-    next();
+    next();*/
   };
 
 const updateGame = async (req, res, next) => {

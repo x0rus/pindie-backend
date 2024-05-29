@@ -1,7 +1,8 @@
 const { sendGameCreated,
   sendGameById,
   sendGameUpdated,
-  sendGameDeleted } = require("../controllers/games");
+  sendGameDeleted,
+ sendAllGames } = require("../controllers/games");
 const { createGame,
   findGameById,
   findAllGames,
@@ -10,9 +11,9 @@ const { createGame,
 
 const gamesRouter = require("express").Router();
 
-const {} = require("");
-
 gamesRouter.post("/games", findAllGames, createGame, sendGameCreated);
+
+gamesRouter.get("/games", findAllGames, sendAllGames)
 
 gamesRouter.get("/games/:id", findGameById, sendGameById);
 

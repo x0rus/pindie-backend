@@ -1,3 +1,7 @@
+const users = require("../models/user")
+
+const { findAllCategories } = require("./categories");
+
 const createUser = async (req, res, next) => {
     console.log("POST /users");
     try {
@@ -9,6 +13,11 @@ const createUser = async (req, res, next) => {
           res.status(400).send(JSON.stringify({ message: "Ошибка создания пользователя" }));
     }
   };
+
+  const findAllUsers = async (req, res, next) => {
+  req.usersArray = await users.find({});
+  next();
+};
 
 const findUserById = async (req, res, next) => {
     console.log("GET /users/:id");
@@ -43,6 +52,7 @@ const findUserById = async (req, res, next) => {
 
   module.exports = {
     createUser,
+    findAllUsers,
     findUserById,
     updateUser,
     deleteUser

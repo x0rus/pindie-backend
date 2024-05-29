@@ -1,4 +1,4 @@
-const categories = require("../models/categories");
+const categories = require("../models/category");
 
 const createCategory = async (req, res, next) => {
     console.log("POST /categories");
@@ -10,6 +10,12 @@ const createCategory = async (req, res, next) => {
           res.status(400).send(JSON.stringify({ message: "Ошибка создания категории" }));
     }
   };
+
+const findAllCategories = async (req, res, next) => {
+    // По GET-запросу на эндпоинт /categories найдём все документы категорий
+  req.categoriesArray = await categories.find({});
+  next();
+};
 
 const findCategoryById = async (req, res, next) => {
     console.log("GET /categories/:id");
@@ -44,6 +50,7 @@ const updateCategory = async (req, res, next) => {
 
   module.exports = {
   createCategory,
+  findAllCategories,
   findCategoryById,
   updateCategory,
   deleteCategory
